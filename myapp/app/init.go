@@ -1,6 +1,9 @@
 package app
 
-import "github.com/revel/revel"
+import (
+	"github.com/revel/revel"
+	"myapp/app/models"
+)
 
 func init() {
 	// Filters is the default set of global filters.
@@ -23,6 +26,8 @@ func init() {
 	// ( order dependent )
 	// revel.OnAppStart(InitDB)
 	// revel.OnAppStart(FillCache)
+
+	revel.OnAppStart(models.InitDB) // init database
 }
 
 // TODO turn this into revel.HeaderFilter
